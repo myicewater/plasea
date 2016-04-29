@@ -5,17 +5,31 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
- * Ò»Ğ©³£ÓÃ·½·¨¹¤¾ßÀà
- * @author ÖìËØº£
+ * ä¸€äº›å¸¸ç”¨æ–¹æ³•å·¥å…·ç±»
+ * @author æœ±ç´ æµ·
  *
  */
 public class PlaseaUtil {
 
+	
+	public static String getValueFromSession(HttpServletRequest request,String name){
+		
+		Object v = request.getSession().getAttribute(name);
+		if(v == null){
+			return null;
+		}else{
+			return (String)v;
+		}
+		
+	}
+	
 	/**
-	 * ÅĞ¶ÏstringÊÇ·ñÎª¿Õ»ò¿Õ×Ö·û´®
+	 * åˆ¤æ–­stringæ˜¯å¦ä¸ºç©ºæˆ–ç©ºå­—ç¬¦ä¸²
 	 * @param string
-	 * @return ÊÇ·µ»Øtrue£¬·ñÔòfalse
+	 * @return æ˜¯è¿”å›trueï¼Œå¦åˆ™false
 	 */
 	public static boolean isNullOrNullString(String string){
 		if(string == null || string.length() == 0){
@@ -25,7 +39,7 @@ public class PlaseaUtil {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÁ½¸öÈÕÆÚÊÇ·ñÊÇÍ¬Ò»Ìì
+	 * åˆ¤æ–­ä¸¤ä¸ªæ—¥æœŸæ˜¯å¦æ˜¯åŒä¸€å¤©
 	 * @param d1
 	 * @param d2
 	 */
@@ -40,7 +54,7 @@ public class PlaseaUtil {
 	}
 	
 	/**
-	 * ÅĞ¶ÏÁ½¸öÈÕÆÚÊÇ·ñÊÇÍ¬Ò»Äê
+	 * åˆ¤æ–­ä¸¤ä¸ªæ—¥æœŸæ˜¯å¦æ˜¯åŒä¸€å¹´
 	 * @param d1
 	 * @param d2
 	 */
